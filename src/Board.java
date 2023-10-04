@@ -1,25 +1,27 @@
 import java.util.*;
 public class Board {
 
-    //Instance variable
+    //Instance variable for game board
     private char[] board;
 
-
+//Constructor for empty space board
     public Board() {
         board = new char[9];
         for (int i = 0; i < 9; i++){
             board[i] = ' ';
         }
     }
-
+    //Check if cell on board is empty
     public boolean isCellEmpty (int move){
         return  board[move - 1] == ' ';
     }
 
+    //Make a move by placing piece on the board (X or O)
     public void makeAMove(int move, char symbol) {
         board[move - 1] = symbol;
     }
 
+    //Checks if we have a winner
     public boolean checkIfWin (char symbol){
         for (int[] winningCombination : WINNING_COMBINATIONS){
             if (board[winningCombination[0]] == symbol&&board[winningCombination[1]] == symbol && board[winningCombination[2]] == symbol){
@@ -29,20 +31,24 @@ public class Board {
         return false;
     }
 
-
+    //Check if the board is full and we have a draw
     public boolean isBoardFull(){
         for(char cell : board){
             if (cell == ' '){
                 return false;
             }
-        }
+        }//The board is full if all cells are occupied
         return true;
     }
 
+    //Static final array to store winnning combo
     private static final int [][] WINNING_COMBINATIONS = {
-            {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, // Horisontella kombinationer
-            {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // Vertikala kombinationer
-            {0, 4, 8}, {2, 4, 6} // Diagonala kombinationer
+            //horizontal combo
+            {0, 1, 2}, {3, 4, 5}, {6, 7, 8},
+            //vertical combo
+            {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
+            //diagonal combo
+            {0, 4, 8}, {2, 4, 6}
     };
 
     //Method for board layout
