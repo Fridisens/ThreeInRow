@@ -1,7 +1,7 @@
 import java.util.*;
 public class Board {
 
-    //Instance variable for game board
+    //Instance variable for holding the symbol x and o on board
     private char[] board;
 
 //Constructor for empty space board
@@ -41,7 +41,7 @@ public class Board {
         return true;
     }
 
-    //Static final array to store winnning combo
+    //Static final two-dimensional array to store winning combo
     private static final int [][] WINNING_COMBINATIONS = {
             //horizontal combo
             {0, 1, 2}, {3, 4, 5}, {6, 7, 8},

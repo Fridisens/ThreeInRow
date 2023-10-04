@@ -8,6 +8,7 @@ public class Main {
         Board board = new Board();
 
         System.out.println("Welcome to TicTacToe");
+        System.out.println();
         System.out.println("*-*-*-*-*-*-*-*-*-*-*");
         System.out.println();
 
@@ -19,6 +20,7 @@ public class Main {
 
         while (true) {
             System.out.println();
+
             System.out.println("Choose a number between 1-9 to make a move");
 
             try {
@@ -34,7 +36,7 @@ public class Main {
                         System.out.println("Player " + symbol + " wins");
                         break;
                     } else if (board.isBoardFull()) {
-                        System.out.println("DRAW");
+                        System.out.println("It´s a draw, better luck next time");
                         break;
 
                     }
@@ -45,7 +47,7 @@ public class Main {
                     System.out.println("Invalid move, Try again");
 
                 }
-
+            //If player press wrong letter or other symbol
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input, try again to enter a number 1-9");
                 inputFromPlayer.next();
@@ -57,6 +59,8 @@ public class Main {
 
     }
 }
+
+//Try catch statement for dealing with if the user print some other than 1-9
 
 
 
