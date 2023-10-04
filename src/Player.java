@@ -2,13 +2,12 @@ public class Player {
 
     String name;
 
-    int howManyWins;
-
-    public Player(String name, int howManyWins) {
+    //Constructor
+    public Player(String name) {
         this.name = name;
-        this.howManyWins = howManyWins;
-    }
 
+    }
+    //Setter och getter for name
     public String getName() {
         return name;
     }
@@ -17,11 +16,6 @@ public class Player {
         this.name = name;
     }
 
-    public int getHowManyWins() {
-        return howManyWins;
-    }
 
-    public void setHowManyWins(int howManyWins) {
-        this.howManyWins = howManyWins;
-    }
 }
+
