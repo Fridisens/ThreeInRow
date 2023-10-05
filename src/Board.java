@@ -4,19 +4,19 @@ public class Board {
     //Instance variable for holding the symbol x and o on board
     private char[] board;
 
-//Constructor for empty space board
+//Constructor for initializing an empty board
     public Board() {
         board = new char[9];
         for (int i = 0; i < 9; i++){
             board[i] = ' ';
         }
     }
-    //Check if cell on board is empty
+    //Method to check if cell on board is empty
     public boolean isCellEmpty (int move){
         return  board[move - 1] == ' ';
     }
 
-    //Make a move by placing piece on the board (X or O)
+    //Method to make a move by placing piece on the board (X or O)
     public void makeAMove(int move, char symbol) {
         board[move - 1] = symbol;
     }
@@ -51,7 +51,7 @@ public class Board {
             {0, 4, 8}, {2, 4, 6}
     };
 
-    //Method for board layout
+    //Method for printing board layout
     public void outprintBoard() {
         System.out.println("|---|---|---|");
         System.out.println("| " + (board[0] == ' ' ? "1" : board[0]) + " | "
