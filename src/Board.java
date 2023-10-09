@@ -1,10 +1,9 @@
-import java.util.*;
 public class Board {
 
     //Instance variable for holding the symbol x and o on board
     private char[] board;
 
-//Constructor for initializing an empty board
+    //Constructor for initializing an empty board
     public Board() {
         board = new char[9];
         for (int i = 0; i < 9; i++){
@@ -66,10 +65,6 @@ public class Board {
                 + (board[7] == ' ' ? "8" : board[7]) + " | " + (board[8] == ' ' ? "9" : board[8])
                 + " |");
         System.out.println("|---|---|---|");
-}
-
-
-
-
     }
+}
 

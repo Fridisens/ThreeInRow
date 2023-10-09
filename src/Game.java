@@ -29,6 +29,7 @@ public class Game {
 
             try {
                 int move = inputFromPlayer.nextInt();
+
                 //Check if entered move i do-able
                 if (move >= 1 && move <= 9 && board.isCellEmpty(move)) {
                     char symbol = playerXTurn ? 'X' : 'O';
@@ -50,7 +51,7 @@ public class Game {
                         break;
                     }
 
-                    //Toogle the players turn between x and o
+                    //Toggle the players turn between x and o
                     playerXTurn = !playerXTurn;
                 } else {
                     System.out.println("Invalid move, Try again");
