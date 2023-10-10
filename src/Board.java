@@ -3,7 +3,7 @@ public class Board {
     //Instance variable for holding the symbol x and o on board
     private char[] board;
 
-    //Constructor for initializing an empty board
+    //Constructor for empty board
     public Board() {
         board = new char[9];
         for (int i = 0; i < 9; i++){
@@ -23,7 +23,9 @@ public class Board {
     //Checks if we have a winner
     public boolean checkIfWin (char symbol){
         for (int[] winningCombination : WINNING_COMBINATIONS){
-            if (board[winningCombination[0]] == symbol&&board[winningCombination[1]] == symbol && board[winningCombination[2]] == symbol){
+            if (board[winningCombination[0]] == symbol&&
+                    board[winningCombination[1]] == symbol &&
+                    board[winningCombination[2]] == symbol) {
                 return true;
             }
         }
@@ -36,7 +38,8 @@ public class Board {
             if (cell == ' '){
                 return false;
             }
-        }//The board is full if all cells are occupied
+        }
+        //The board is full if all cells are occupied
         return true;
     }
 

@@ -2,56 +2,61 @@ import java.util.Scanner;
 
 public class Game {
 
+    //Instance variables
+    private Scanner inputFromPlayer;
+    private Board board;
+    private boolean playerXTurn;
+
+    //Contructor
+    public Game(){
+        inputFromPlayer = new Scanner(System.in);
+        board = new Board();
+        playerXTurn = true;
+
+    }
+    //Method for start game
     public void play() {
-        Scanner inputFromPlayer = new Scanner(System.in);
-
-        // create instance of the board
-        Board board = new Board();
-
         //Welcome message
         System.out.println("Welcome to TicTacToe");
         System.out.println();
         System.out.println("*-*-*-*-*-*-*-*-*-*-*");
         System.out.println();
 
-        // Call the method to print the game board
+        // Showing the empty board
         board.outprintBoard();
-
-        // Initialize a boolean for player x turn
-        boolean playerXTurn = true;
 
         //Main game loop
         while (true) {
             System.out.println();
 
-            //Prompt the current player to choose a number
+            //Ask the actual player for a number
             System.out.println("Choose a number between 1-9 to make a move");
 
             try {
                 int move = inputFromPlayer.nextInt();
 
-                //Check if entered move i do-able
+                //Control that the move is do-able
                 if (move >= 1 && move <= 9 && board.isCellEmpty(move)) {
                     char symbol = playerXTurn ? 'X' : 'O';
 
-                    //Make a selected move on board
+                    //Make the selected move on board
                     board.makeAMove(move, symbol);
 
-                    //Display updated board
+                    //Show updated board
                     board.outprintBoard();
 
                     //Check if current player has won
                     if (board.checkIfWin(symbol)) {
-                        System.out.println("Player " + symbol + " wins");
+                        System.out.println("Player " + symbol + " wins, Thanks for playing!");
                         break;
 
                         //Checks for a draw
                     } else if (board.isBoardFull()) {
-                        System.out.println("It's a draw, better luck next time");
+                        System.out.println("It's a draw, Thanks for playing, better luck next time!");
                         break;
                     }
 
-                    //Toggle the players turn between x and o
+                    //Toggle turns between x and o
                     playerXTurn = !playerXTurn;
                 } else {
                     System.out.println("Invalid move, Try again");
