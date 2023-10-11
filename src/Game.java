@@ -7,12 +7,16 @@ public class Game {
     private Board board;
     private boolean playerXTurn;
 
+    private String playerXName;
+    private String playerOName;
+
     //Contructor
     public Game(){
         inputFromPlayer = new Scanner(System.in);
         board = new Board();
         playerXTurn = true;
-
+        playerXName = "Player X";
+        playerOName = "Player O";
     }
     //Method for start game
     public void play() {
@@ -22,12 +26,19 @@ public class Game {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*");
         System.out.println();
 
+        System.out.println("Enter name for Player X: ");
+        playerXName = inputFromPlayer.nextLine();
+        System.out.println("Enter name for Player O: ");
+        playerOName = inputFromPlayer.nextLine();
+
+
         // Showing the empty board
         board.outprintBoard();
 
         //Main game loop
         while (true) {
             System.out.println();
+            System.out.println("It´s " + (playerXTurn ? playerXName : playerOName) + "´s turn");
 
             //Ask the actual player for a number
             System.out.println("Choose a number between 1-9 to make a move");
@@ -47,7 +58,8 @@ public class Game {
 
                     //Check if current player has won
                     if (board.checkIfWin(symbol)) {
-                        System.out.println("Player " + symbol + " wins, Thanks for playing!");
+                        System.out.println((playerXTurn ? playerXName : playerOName) + " wins");
+
                         break;
 
                         //Checks for a draw
@@ -71,4 +83,3 @@ public class Game {
     }
 }
 
-//test för github

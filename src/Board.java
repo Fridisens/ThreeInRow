@@ -23,7 +23,7 @@ public class Board {
     //Checks if we have a winner
     public boolean checkIfWin (char symbol){
         for (int[] winningCombination : WINNING_COMBINATIONS){
-            if (board[winningCombination[0]] == symbol&&
+            if (board[winningCombination[0]] == symbol &&
                     board[winningCombination[1]] == symbol &&
                     board[winningCombination[2]] == symbol) {
                 return true;
@@ -34,7 +34,7 @@ public class Board {
 
     //Check if the board is full and we have a draw
     public boolean isBoardFull(){
-        for(char cell : board){
+        for (char cell : board){
             if (cell == ' '){
                 return false;
             }
