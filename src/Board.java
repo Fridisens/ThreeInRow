@@ -20,7 +20,7 @@ public class Board {
         board[move - 1] = symbol;
     }
 
-    //Checks if we have a winner
+    //Method to control if we have a winner
     public boolean checkIfWin (char symbol){
         for (int[] winningCombination : WINNING_COMBINATIONS){
             if (board[winningCombination[0]] == symbol &&

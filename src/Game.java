@@ -7,17 +7,19 @@ public class Game {
     private Board board;
     private boolean playerXTurn;
 
-    private String playerXName;
-    private String playerOName;
+    private Player playerXName;
+    private Player playerOName;
 
     //Contructor
     public Game(){
         inputFromPlayer = new Scanner(System.in);
         board = new Board();
+        playerXName = new Player("");
+        playerOName = new Player("");
         playerXTurn = true;
-        playerXName = "Player X";
-        playerOName = "Player O";
+
     }
+
     //Method for start game
     public void play() {
         //Welcome message
@@ -27,9 +29,11 @@ public class Game {
         System.out.println();
 
         System.out.println("Enter name for Player X: ");
-        playerXName = inputFromPlayer.nextLine();
+        String playerX = inputFromPlayer.nextLine();
+        playerXName.setName(playerX);
         System.out.println("Enter name for Player O: ");
-        playerOName = inputFromPlayer.nextLine();
+        String playerO = inputFromPlayer.nextLine();
+        playerOName.setName(playerO);
 
 
         // Showing the empty board
@@ -38,7 +42,7 @@ public class Game {
         //Main game loop
         while (true) {
             System.out.println();
-            System.out.println("It´s " + (playerXTurn ? playerXName : playerOName) + "´s turn");
+            System.out.println("It´s " + (playerXTurn ? playerXName.getName() : playerOName.getName()) + "´s turn");
 
             //Ask the actual player for a number
             System.out.println("Choose a number between 1-9 to make a move");
@@ -58,8 +62,7 @@ public class Game {
 
                     //Check if current player has won
                     if (board.checkIfWin(symbol)) {
-                        System.out.println((playerXTurn ? playerXName : playerOName) + " wins");
-
+                        System.out.println((playerXTurn ? playerXName.getName() : playerOName.getName()) + " wins");
                         break;
 
                         //Checks for a draw
