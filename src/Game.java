@@ -9,7 +9,7 @@ public class Game {
     private Player playerXName;
     private Player playerOName;
 
-    //Contructor
+    //Constructor
     public Game(){
         inputFromPlayer = new Scanner(System.in);
         board = new Board();
@@ -41,7 +41,7 @@ public class Game {
         //Main game loop
         while (true) {
             System.out.println();
-            System.out.println("It´s " + (playerXTurn ? playerXName.getName() : playerOName.getName()) + "´s turn");
+            System.out.println((playerXTurn ? playerXName.getName() : playerOName.getName()) + "´s turn");
 
             //Ask the actual player for a number
             System.out.println("Choose a number between 1-9 to make a move");
@@ -62,36 +62,40 @@ public class Game {
                     //Check if current player has won
                     if (board.checkIfWin(symbol)) {
                         System.out.println((playerXTurn ? playerXName.getName() : playerOName.getName()) + " wins");
-                        System.out.println("You wanna play again, y/n");
+
+                        String answer;
+                        System.out.println("You wanna play again? y/n");
                         Scanner playAgain = new Scanner(System.in);
-                        playAgain.nextLine();
-                        if (playAgain.equals("j"));
-                        Game game = new Game();
-                        game.play();
+                        answer = playAgain.nextLine();
+
+                        if (answer.equalsIgnoreCase("y")) {
+                            Game game = new Game();
+                            game.play();
+                        } else {
+                            System.out.println("Thanks for playing, goodbye!");
+                        }
 
                         break;
 
                         //Checks for a draw
                     } else if (board.isBoardFull()) {
-                        System.out.println("It's a draw, thanks for playing!");
-
-                        System.out.println("You wanna play again, y/n");
+                        System.out.println("It's a draw!");
+                        String answer;
+                        System.out.println("You wanna play again? y/n");
                         Scanner playAgain = new Scanner(System.in);
-                        playAgain.nextLine();
-                        if (playAgain.equals("j"));
-                        Game game = new Game();
-                        game.play();
-
+                        answer = playAgain.nextLine();
+                        if (answer.equalsIgnoreCase("y")) {
+                            Game game = new Game();
+                            game.play();
+                        } else {
+                            System.out.println("Goodbye");
+                        }
                         break;
-
-
                     }
-
                     //Toggle turns between x and o
                     playerXTurn = !playerXTurn;
                 } else {
-                    System.out.println("Invalid move, Try again");
-
+                    System.out.println("Invalid move, please try again");
                 }
                 //handle invalid moves
             } catch (java.util.InputMismatchException e) {
