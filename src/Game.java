@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Game {
-
     //Instance variables
     private Scanner inputFromPlayer;
     private Board board;
@@ -63,20 +62,37 @@ public class Game {
                     //Check if current player has won
                     if (board.checkIfWin(symbol)) {
                         System.out.println((playerXTurn ? playerXName.getName() : playerOName.getName()) + " wins");
+                        System.out.println("You wanna play again, y/n");
+                        Scanner playAgain = new Scanner(System.in);
+                        playAgain.nextLine();
+                        if (playAgain.equals("j"));
+                        Game game = new Game();
+                        game.play();
+
                         break;
 
                         //Checks for a draw
                     } else if (board.isBoardFull()) {
-                        System.out.println("It's a draw, Thanks for playing, better luck next time!");
+                        System.out.println("It's a draw, thanks for playing!");
+
+                        System.out.println("You wanna play again, y/n");
+                        Scanner playAgain = new Scanner(System.in);
+                        playAgain.nextLine();
+                        if (playAgain.equals("j"));
+                        Game game = new Game();
+                        game.play();
+
                         break;
+
+
                     }
 
                     //Toggle turns between x and o
                     playerXTurn = !playerXTurn;
                 } else {
                     System.out.println("Invalid move, Try again");
-                }
 
+                }
                 //handle invalid moves
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input, try again to enter a number between 1-9");
@@ -85,4 +101,9 @@ public class Game {
         }
     }
 }
+
+
+
+
+
 
