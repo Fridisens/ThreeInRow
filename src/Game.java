@@ -5,7 +5,6 @@ public class Game {
     private Scanner inputFromPlayer;
     private Board board;
     private boolean playerXTurn;
-
     private Player playerXName;
     private Player playerOName;
 
@@ -16,7 +15,6 @@ public class Game {
         playerXName = new Player("");
         playerOName = new Player("");
         playerXTurn = true;
-
     }
 
     //Method for start game
@@ -33,7 +31,6 @@ public class Game {
         System.out.println("Enter name for Player O: ");
         String playerO = inputFromPlayer.nextLine();
         playerOName.setName(playerO);
-
 
         // Showing the empty board
         board.outprintBoard();
@@ -74,7 +71,6 @@ public class Game {
                         } else {
                             System.out.println("Thanks for playing, goodbye!");
                         }
-
                         break;
 
                         //Checks for a draw
@@ -87,6 +83,7 @@ public class Game {
                         if (answer.equalsIgnoreCase("y")) {
                             Game game = new Game();
                             game.play();
+
                         } else {
                             System.out.println("Goodbye");
                         }

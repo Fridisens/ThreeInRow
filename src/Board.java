@@ -10,6 +10,7 @@ public class Board {
             board[i] = ' ';
         }
     }
+
     //Method to check if cell on board is empty
     public boolean isCellEmpty (int move){
         return  board[move - 1] == ' ';
